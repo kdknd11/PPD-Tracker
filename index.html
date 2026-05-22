@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PPD TRACKER // KRAFTON</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#0a0a08; --bg1:#0f0f0c; --bg2:#141410; --bg3:#1a1a15;
+  --border:#2a2a22; --border2:#363630;
+  --amber:#e8a020; --amber-dim:#7a5010; --amber-lo:#1e1608;
+  --green:#22dd66; --green-dim:#0f5528; --green-lo:#081a0e;
+  --red:#ee3333; --red-dim:#661010; --red-lo:#1a0808;
+  --blue:#4499ee; --blue-dim:#1a3a66; --blue-lo:#080f1a;
+  --text:#f0eada; --text2:#c8bca8; --text3:#807060;
+  --mono:'IBM Plex Mono',monospace; --sans:'IBM Plex Sans',sans-serif;
+  --retro-border:2px solid var(--amber-dim);
+  --retro-border-bright:2px solid var(--amber);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{font-size:13px}
+body{background:var(--bg);color:var(--text);font-family:var(--mono);line-height:1.4;min-height:100vh;overflow-x:hidden}
+.topbar{display:flex;align-items:stretch;background:var(--bg1);border-bottom:var(--retro-border-bright);height:36px;position:sticky;top:0;z-index:100;overflow:hidden}
+.topbar-logo{display:flex;align-items:center;padding:0 16px;background:var(--amber);color:#000;font-size:11px;font-weight:600;letter-spacing:.1em;white-space:nowrap;flex-shrink:0;border-right:2px solid #000}
+.topbar-logo span{opacity:.5}
+.topbar-right{display:flex;align-items:center;gap:12px;padding:0 20px;flex-shrink:0;min-width:200px;border-left:var(--retro-border)}
+.topbar-status{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--green)}
+.blink{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--green);animation:blink .9s step-end infinite}
+@keyframes blink{50%{opacity:0}}
+.layout{display:grid;grid-template-columns:148px 1fr 160px;min-height:calc(100vh - 36px)}
+.leftnav{border-right:var(--retro-border);background:#050504;display:flex;flex-direction:column}
+.nav-section{border-bottom:var(--retro-border)}
+.nav-group-label{font-size:9px;color:var(--amber-dim);letter-spacing:.10em;text-transform:uppercase;padding:7px 10px 4px;border-bottom:1px solid var(--border)}
+.nav-row{display:flex;align-items:center;justify-content:space-between;padding:6px 10px;cursor:pointer;color:var(--text2);font-size:11px;border-bottom:1px solid var(--border);transition:background .1s}
+.nav-row:hover{background:var(--bg3);color:var(--text)}
+.nav-row.active{color:var(--amber);background:var(--amber-lo);border-left:2px solid var(--amber)}
+.nav-badge{font-size:9px;padding:1px 5px;border-radius:2px;font-weight:600}
+.badge-red{background:var(--red-dim);color:var(--red)}
+.badge-amber{background:var(--amber-lo);color:var(--amber)}
+.nav-prod-item{display:flex;align-items:center;justify-content:space-between;padding:5px 10px;cursor:pointer;font-size:11px;color:var(--text2);border-bottom:1px solid var(--border)}
+.nav-prod-item:hover{background:var(--bg3)}
+.prod-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
+.main{background:#11110d;overflow-y:auto}
+.retro-block{margin:10px 12px;border:var(--retro-border-bright);background:var(--bg2)}
+.retro-block+.retro-block{margin-top:0;border-top:none}
+.sec-hdr{display:flex;align-items:center;justify-content:space-between;padding:5px 10px;background:var(--bg3);border-bottom:var(--retro-border)}
+.sec-title{font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--amber)}
+.sec-meta{font-size:9px;color:var(--text3)}
+.summary-strip{display:grid}
+.sum-cell{padding:10px 12px;border-right:1px solid var(--amber-dim)}
+.sum-cell:last-child{border-right:none}
+.sum-label{font-size:9px;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.sum-val{font-size:20px;font-weight:600;letter-spacing:-.02em;line-height:1}
+.sum-sub{font-size:9px;color:var(--text2);margin-top:3px}
+.change-table{width:100%;border-collapse:collapse;font-size:11px}
+.change-table th{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--text3);text-align:left;padding:5px 10px;border-bottom:var(--retro-border);background:var(--bg3);font-weight:500;white-space:nowrap}
+.change-table td{padding:7px 10px;border-bottom:1px solid var(--border);vertical-align:top}
+.change-table tr:hover td{background:var(--bg3)}
+.ct-prod{font-weight:600;color:var(--amber);white-space:nowrap}
+.ct-fullname{font-size:10px;color:var(--text3);margin-top:1px;font-family:var(--sans)}
+.ct-section{display:inline-block;font-size:9px;font-weight:600;padding:2px 6px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.s-roadmap{background:var(--green-lo);color:var(--green);border:1px solid var(--green-dim)}
+.s-feature{background:var(--blue-lo);color:var(--blue);border:1px solid var(--blue-dim)}
+.s-person{background:var(--amber-lo);color:var(--amber);border:1px solid var(--amber-dim)}
+.s-vision{background:var(--bg3);color:var(--text2);border:1px solid var(--border2)}
+.ct-diff{display:flex;flex-direction:column;gap:2px}
+.diff-before{color:var(--red);font-size:10px}
+.diff-before::before{content:'− ';opacity:.7}
+.diff-after{color:var(--green);font-size:10px}
+.diff-after::before{content:'+ ';opacity:.7}
+.diff-mod{color:var(--blue);font-size:10px}
+.diff-mod::before{content:'~ ';opacity:.7}
+.ct-ver{font-size:10px;color:var(--text2);white-space:nowrap}
+.ct-time{font-size:10px;color:var(--text);white-space:nowrap}
+.sev-major td:first-child{border-left:2px solid var(--red)}
+.sev-minor td:first-child{border-left:2px solid var(--amber)}
+.rightpanel{border-left:var(--retro-border);background:#050504;display:flex;flex-direction:column}
+.rp-section{border-bottom:var(--retro-border);padding:10px 12px}
+.rp-title{font-size:9px;color:var(--amber-dim);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;font-weight:600}
+.agent-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;font-size:10px}
+.agent-key{color:var(--text3)}
+.agent-val{color:var(--amber);font-weight:500}
+.agent-val.green{color:var(--green)}
+.trend-row{display:flex;align-items:center;gap:5px;margin-bottom:6px}
+.trend-label{font-size:10px;color:var(--text2);min-width:52px}
+.trend-track{flex:1;height:3px;background:var(--border)}
+.trend-fill{height:100%}
+.trend-count{font-size:10px;color:var(--text3);min-width:18px;text-align:right}
+.no-chg-chip{font-size:9px;padding:2px 5px;border:1px solid var(--border2);color:var(--text2);background:var(--bg2);letter-spacing:.04em}
+.dot-matrix-wrap{flex:1;overflow:hidden;height:100%;display:flex;align-items:center;border-right:var(--retro-border);position:relative;background:#060604;background-image:repeating-linear-gradient(0deg,rgba(0,0,0,0) 0px,rgba(0,0,0,0) 3px,rgba(0,0,0,0.25) 3px,rgba(0,0,0,0.25) 4px)}
+.dot-matrix-wrap::before,.dot-matrix-wrap::after{content:'';position:absolute;top:0;bottom:0;width:24px;z-index:2;pointer-events:none}
+.dot-matrix-wrap::before{left:0;background:linear-gradient(to right,#060604,transparent)}
+.dot-matrix-wrap::after{right:0;background:linear-gradient(to left,#060604,transparent)}
+.dm-track{display:flex;align-items:center;white-space:nowrap;animation:dmScroll 10s linear infinite;will-change:transform}
+@keyframes dmScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.dm-msg{display:inline-flex;align-items:center;gap:10px;padding:0 40px;font-family:'Share Tech Mono','Courier New',monospace;font-size:13px;font-weight:400;letter-spacing:.22em;text-transform:uppercase}
+.dm-today{color:#c88010;text-shadow:0 0 2px #c88010,0 0 6px rgba(200,128,16,.5)}
+.dm-major{color:#aa1a1a;text-shadow:0 0 2px #cc2222,0 0 6px rgba(180,30,30,.5)}
+.dm-num{font-size:15px;letter-spacing:.1em}
+.dm-div{color:#2a2a18;font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:.1em;padding:0 10px}
+.empty-state{padding:24px;color:var(--text3);font-size:11px;text-align:center}
+::-webkit-scrollbar{width:4px;height:4px}
+::-webkit-scrollbar-track{background:var(--bg1)}
+::-webkit-scrollbar-thumb{background:var(--border2)}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-logo">PPD <span>//</span> TRACKER</div>
+  <div class="dot-matrix-wrap">
+    <div class="dm-track" id="dmTrack">
+      <span class="dm-msg dm-today">로딩 중...</span>
+      <span class="dm-msg dm-today">로딩 중...</span>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <div class="topbar-status"><span class="blink"></span> 에이전트 실행 중</div>
+    <span style="color:var(--text3);font-size:10px" id="topDate">-</span>
+  </div>
+</div>
+
+<div class="layout">
+  <nav class="leftnav">
+    <div class="nav-section">
+      <div class="nav-group-label">오늘 변경된 프로덕트</div>
+      <div id="navChanged"></div>
+    </div>
+    <div class="nav-section">
+      <div class="nav-group-label">전체 프로덕트</div>
+      <div id="navAll"></div>
+    </div>
+  </nav>
+
+  <main class="main">
+    <div class="retro-block">
+      <div class="sec-hdr">
+        <span class="sec-title">오늘 변경 요약</span>
+        <span class="sec-meta" id="scanMeta">-</span>
+      </div>
+      <div class="summary-strip" style="grid-template-columns:repeat(4,1fr)">
+        <div class="sum-cell">
+          <div class="sum-label">중요 변경 프로덕트</div>
+          <div class="sum-val" style="color:var(--red)" id="cntMajor">-</div>
+          <div class="sum-sub">severity: major</div>
+        </div>
+        <div class="sum-cell">
+          <div class="sum-label">일반 변경 프로덕트</div>
+          <div class="sum-val" style="color:var(--amber)" id="cntMinor">-</div>
+          <div class="sum-sub">severity: minor</div>
+        </div>
+        <div class="sum-cell">
+          <div class="sum-label">변경 없는 프로덕트</div>
+          <div class="sum-val" style="color:var(--text3)" id="cntNone">-</div>
+          <div class="sum-sub">오늘 위키 수정 없음</div>
+        </div>
+        <div class="sum-cell">
+          <div class="sum-label">트래킹 중인 프로덕트</div>
+          <div class="sum-val" style="color:var(--green)" id="cntTotal">-</div>
+          <div class="sum-sub">전체 대상</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="retro-block">
+      <div class="sec-hdr">
+        <span class="sec-title">오늘 변경된 프로덕트</span>
+        <span class="sec-meta">좌측 테두리: 빨강=중요 · 노랑=일반</span>
+      </div>
+      <table class="change-table">
+        <thead>
+          <tr>
+            <th style="width:100px">프로덕트</th>
+            <th style="width:90px">변경 섹션</th>
+            <th>변경 내용</th>
+            <th style="width:60px">심각도</th>
+          </tr>
+        </thead>
+        <tbody id="changeTableBody">
+          <tr><td colspan="4" class="empty-state">데이터 로딩 중...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <aside class="rightpanel">
+    <div class="rp-section">
+      <div class="agent-row"><span class="agent-key">트래킹 중인 프로덕트</span><span class="agent-val" id="rpTotal">-</span></div>
+      <div class="agent-row"><span class="agent-key">오늘 변경</span><span class="agent-val" style="color:var(--red)" id="rpChanged">-</span></div>
+      <div class="agent-row"><span class="agent-key">중요 변경</span><span class="agent-val" style="color:var(--red)" id="rpMajor">-</span></div>
+    </div>
+    <div class="rp-section">
+      <div class="rp-title">변경 없는 프로덕트</div>
+      <div style="display:flex;flex-wrap:wrap;gap:3px" id="noChangeChips"></div>
+    </div>
+    <div class="rp-section" style="border-bottom:none">
+      <div class="rp-title">에이전트 정보</div>
+      <div class="agent-row"><span class="agent-key">상태</span><span class="agent-val green">● 실행 중</span></div>
+      <div class="agent-row"><span class="agent-key">업데이트 주기</span><span class="agent-val">매일 09:00</span></div>
+      <div class="agent-row"><span class="agent-key">마지막 업데이트</span><span class="agent-val" id="rpLastUpdated">-</span></div>
+    </div>
+  </aside>
+</div>
+
+<script>
+// GitHub raw URL — 본인 username으로 교체 필요
+const DATA_URL = 'https://raw.githubusercontent.com/USERNAME/PPD-Tracker/main/data.json';
+
+const SECTION_CLASS = { person:'s-person', roadmap:'s-roadmap', features:'s-feature', overview:'s-vision' };
+const SECTION_LABEL = { person:'담당자', roadmap:'로드맵', features:'기능 상태', overview:'개요' };
+
+async function load() {
+  let data;
+  try {
+    const res = await fetch(DATA_URL + '?t=' + Date.now());
+    data = await res.json();
+  } catch(e) {
+    document.getElementById('changeTableBody').innerHTML =
+      '<tr><td colspan="4" class="empty-state">데이터를 불러올 수 없습니다. GitHub URL을 확인해주세요.</td></tr>';
+    return;
+  }
+
+  const products = data.products || [];
+  const lastUpdated = data.last_updated || '-';
+  const changed = products.filter(p => p.changes && p.changes.length > 0);
+  const major = changed.filter(p => p.severity === 'major');
+  const minor = changed.filter(p => p.severity === 'minor');
+  const noChange = products.filter(p => !p.changes || p.changes.length === 0);
+
+  // topbar
+  const dateStr = lastUpdated ? lastUpdated.slice(0,10) : '-';
+  document.getElementById('topDate').textContent = dateStr;
+  document.getElementById('scanMeta').textContent = `스캔 완료 ${lastUpdated} · 총 ${products.length}개 페이지`;
+
+  // dot matrix
+  const dmContent = `
+    <span class="dm-msg dm-today">오늘의 변경 <span class="dm-num">${changed.length}</span></span>
+    <span class="dm-div">░░░</span>
+    <span class="dm-msg dm-major">중요 변경 <span class="dm-num">${major.length}</span></span>
+    <span class="dm-div">░░░</span>
+    <span class="dm-msg dm-today">오늘의 변경 <span class="dm-num">${changed.length}</span></span>
+    <span class="dm-div">░░░</span>
+    <span class="dm-msg dm-major">중요 변경 <span class="dm-num">${major.length}</span></span>
+    <span class="dm-div">░░░</span>`;
+  document.getElementById('dmTrack').innerHTML = dmContent;
+
+  // summary
+  document.getElementById('cntMajor').textContent = major.length;
+  document.getElementById('cntMinor').textContent = minor.length;
+  document.getElementById('cntNone').textContent = noChange.length;
+  document.getElementById('cntTotal').textContent = products.length;
+
+  // right panel
+  document.getElementById('rpTotal').textContent = products.length + '개';
+  document.getElementById('rpChanged').textContent = changed.length + '개';
+  document.getElementById('rpMajor').textContent = major.length + '개';
+  document.getElementById('rpLastUpdated').textContent = lastUpdated.slice(0,10);
+
+  // left nav - changed
+  const navChanged = document.getElementById('navChanged');
+  if (changed.length === 0) {
+    navChanged.innerHTML = '<div class="nav-row">오늘 변경 없음</div>';
+  } else {
+    navChanged.innerHTML = changed.map(p =>
+      `<div class="nav-row">
+        ${p.key}
+        <span class="nav-badge ${p.severity === 'major' ? 'badge-red' : 'badge-amber'}">
+          ${p.severity === 'major' ? '중요' : '일반'}
+        </span>
+      </div>`
+    ).join('');
+  }
+
+  // left nav - all products
+  document.getElementById('navAll').innerHTML = products.map(p => {
+    const hasChange = p.changes && p.changes.length > 0;
+    const color = p.severity === 'major' ? 'var(--red)' : p.severity === 'minor' ? 'var(--amber)' : 'var(--border2)';
+    return `<div class="nav-prod-item"><span>${p.key}</span><span class="prod-dot" style="background:${color}"></span></div>`;
+  }).join('');
+
+  // change table
+  const tbody = document.getElementById('changeTableBody');
+  if (changed.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="4" class="empty-state">오늘 변경된 프로덕트가 없습니다.</td></tr>';
+  } else {
+    tbody.innerHTML = changed.map(p => {
+      const sevClass = p.severity === 'major' ? 'sev-major' : 'sev-minor';
+      const changesHtml = (p.changes || []).map(c => {
+        const secClass = SECTION_CLASS[c.section] || 's-vision';
+        const secLabel = SECTION_LABEL[c.section] || c.section;
+        const diffHtml = c.before && c.after
+          ? `<span class="diff-before">${c.before}</span><span class="diff-after">${c.after}</span>`
+          : `<span class="diff-mod">${c.summary || ''}</span>`;
+        return `<tr class="${sevClass}">
+          <td>
+            <div class="ct-prod">${p.key}</div>
+            <div class="ct-fullname">${p.title || ''}</div>
+          </td>
+          <td><span class="ct-section ${secClass}">${secLabel}</span></td>
+          <td><div class="ct-diff">${diffHtml}</div></td>
+          <td><span class="ct-section ${p.severity === 'major' ? 'badge-red' : 'badge-amber'}" style="border:none">${p.severity}</span></td>
+        </tr>`;
+      }).join('');
+      return changesHtml;
+    }).join('');
+  }
+
+  // no change chips
+  document.getElementById('noChangeChips').innerHTML = noChange.map(p =>
+    `<span class="no-chg-chip">${p.key}</span>`
+  ).join('');
+}
+
+load();
+</script>
+</body>
+</html>
