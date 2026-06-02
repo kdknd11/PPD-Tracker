@@ -1,226 +1,126 @@
 {
-  "last_updated": "2026-06-02T15:10:22.787+09:00",
-  "total_changes": 20,
+  "last_updated": "2026-06-02T15:32:23.608+09:00",
+  "total_changes": 0,
   "products": [
     {
-      "product_name": "EN",
-      "page_title": "KRAFTON Publishing Platform Products(EN)",
-      "page_url": "https://krafton.atlassian.net/wiki/spaces/236945417/pages/380370945",
-      "change_summary": "KRAFTON Publishing Platform Products(EN) 페이지가 신규로 추적 대상에 등록되었습니다.",
-      "change_category": "신규 등록",
-      "change_details": "현재 버전: 11",
-      "old_version": 0,
-      "new_version": 11,
-      "detected_at": "2026-06-02T15:10:22.787+09:00"
+      "key": "EN",
+      "title": "KRAFTON Publishing Platform Products(EN)",
+      "severity": null,
+      "changes": []
     },
     {
-      "product_name": "KID",
-      "page_title": "KRAFTON ID(KID)",
-      "page_url": "https://krafton.atlassian.net/wiki/spaces/236945417/pages/378704937",
-      "change_summary": "KRAFTON ID(KID) 페이지가 신규로 추적 대상에 등록되었습니다.",
-      "change_category": "신규 등록",
-      "change_details": "현재 버전: 13",
-      "old_version": 0,
-      "new_version": 13,
-      "detected_at": "2026-06-02T15:10:22.787+09:00"
+      "key": "KID",
+      "title": "KRAFTON ID(KID)",
+      "severity": null,
+      "changes": []
     },
     {
-      "product_name": "KAD",
-      "page_title": "KRAFTON Analytics Dashboard(KAD)",
-      "page_url": "https://krafton.atlassian.net/wiki/spaces/236945417/pages/376987596",
-      "change_summary": "KRAFTON Analytics Dashboard(KAD) 페이지가 신규로 추적 대상에 등록되었습니다.",
-      "change_category": "신규 등록",
-      "change_details": "현재 버전: 31",
-      "old_version": 0,
-      "new_version": 31,
-      "detected_at": "2026-06-02T15:10:22.787+09:00"
+      "key": "KAD",
+      "title": "KRAFTON Analytics Dashboard(KAD)",
+      "severity": null,
+      "changes": []
     },
     {
-      "product_name": "KCN",
-      "page_title": "KRAFTON Creator Network(KCN)",
-      "page_url": "https://krafton.atlassian.net/wiki/spaces/236945417/pages/376170541",
-      "change_summary": "KRAFTON Creator Network(KCN) 페이지가 신규로 추적 대상에 등록되었습니다.",
-      "change_category": "신규 등록",
-      "change_details": "현재 버전: 47",
-      "old_version": 0,
-      "new_version": 47,
-      "detected_at": "2026-06-02T15:10:22.787+09:00"
+      "key": "KCN",
+      "title": "KRAFTON Creator Network(KCN)",
+      "severity": null,
+      "changes": []
     },
     {
-      "product_name": "KEC",
-      "page_title": "KRAFTON Event Center(KEC)",
-      "page_url": "https://krafton.atlassian.net/wiki/spaces/236945417/pages/378705343",
-      "change_summary": "KRAFTON Event Center(KEC) 페이지가 신규로 추적 대상에 등록되었습니다.",
-      "change_category": "신규 등록",
-      "change_details": "현재 버전: 25",
-      "old_version": 0,
-      "new_version": 25,
-      "detected_at": "2026-06-02T15:10:22.787+09:00"
+      "key": "KEC",
+      "title": "KRAFTON Event Center(KEC)",
+      "severity": null,
+      "changes": []
     },
     {
-      "product_name": "KOS",
-      "page_title": "KRAFTON Online Service(KOS)",
-      "page_url": "https://krafton.atlassian.net/wiki/spaces/236945417/pages/376987802",
-      "change_summary": "KRAFTON Online Service(KOS) 페이지가 신규로 추적 대상에 등록되었습니다.",
-      "change_category": "신규 등록",
-      "change_details": "현재 버전: 21",
-      "old_version": 0,
-      "new_version": 21,
-      "detected_at": "2026-06-02T15:10:22.787+09:00"
+      "key": "KOS",
+      "title": "KRAFTON Online Service(KOS)",
+      "severity": null,
+      "changes": []
     },
     {
-      "product_name": "KGS",
-      "page_title": "KRAFTON Game Service(KGS)",
-      "page_url": "https://krafton.atlassian.net/wiki/spaces/236945417/pages/378705402",
-      "change_summary": "KRAFTON Game Service(KGS) 페이지가 신규로 추적 대상에 등록되었습니다.",
-      "change_category": "신규 등록",
-      "change_details": "현재 버전: 12",
-      "old_version": 0,
-      "new_version": 12,
-      "detected_at": "2026-06-02T15:10:22.787+09:00"
+      "key": "KGS",
+      "title": "KRAFTON Game Service(KGS)",
+      "severity": null,
+      "changes": []
     },
     {
-      "product_name": "KUS",
-      "page_title": "KRAFTON User Service(KUS)",
-      "page_url": "https://krafton.atlassian.net/wiki/spaces/236945417/pages/378705471",
-      "change_summary": "KRAFTON User Service(KUS) 페이지가 신규로 추적 대상에 등록되었습니다.",
-      "change_category": "신규 등록",
-      "change_details": "현재 버전: 12",
-      "old_version": 0,
-      "new_version": 12,
-      "detected_at": "2026-06-02T15:10:22.787+09:00"
+      "key": "KUS",
+      "title": "KRAFTON User Service(KUS)",
+      "severity": null,
+      "changes": []
     },
     {
-      "product_name": "KUT",
-      "page_title": "KRAFTON User Test (KUT)",
-      "page_url": "https://krafton.atlassian.net/wiki/spaces/236945417/pages/989792945",
-      "change_summary": "KRAFTON User Test (KUT) 페이지가 신규로 추적 대상에 등록되었습니다.",
-      "change_category": "신규 등록",
-      "change_details": "현재 버전: 6",
-      "old_version": 0,
-      "new_version": 6,
-      "detected_at": "2026-06-02T15:10:22.787+09:00"
+      "key": "KUT",
+      "title": "KRAFTON User Test (KUT)",
+      "severity": null,
+      "changes": []
     },
     {
-      "product_name": "KEM",
-      "page_title": "KRAFTON E-Sports Manager(KEM)",
-      "page_url": "https://krafton.atlassian.net/wiki/spaces/236945417/pages/378705545",
-      "change_summary": "KRAFTON E-Sports Manager(KEM) 페이지가 신규로 추적 대상에 등록되었습니다.",
-      "change_category": "신규 등록",
-      "change_details": "현재 버전: 8",
-      "old_version": 0,
-      "new_version": 8,
-      "detected_at": "2026-06-02T15:10:22.787+09:00"
+      "key": "KEM",
+      "title": "KRAFTON E-Sports Manager(KEM)",
+      "severity": null,
+      "changes": []
     },
     {
-      "product_name": "KRM",
-      "page_title": "KRAFTON Release Manager(KRM)",
-      "page_url": "https://krafton.atlassian.net/wiki/spaces/236945417/pages/376864684",
-      "change_summary": "KRAFTON Release Manager(KRM) 페이지가 신규로 추적 대상에 등록되었습니다.",
-      "change_category": "신규 등록",
-      "change_details": "현재 버전: 6",
-      "old_version": 0,
-      "new_version": 6,
-      "detected_at": "2026-06-02T15:10:22.787+09:00"
+      "key": "KRM",
+      "title": "KRAFTON Release Manager(KRM)",
+      "severity": null,
+      "changes": []
     },
     {
-      "product_name": "KCM",
-      "page_title": "KRAFTON Campaign Manager(KCM)",
-      "page_url": "https://krafton.atlassian.net/wiki/spaces/236945417/pages/376864768",
-      "change_summary": "KRAFTON Campaign Manager(KCM) 페이지가 신규로 추적 대상에 등록되었습니다.",
-      "change_category": "신규 등록",
-      "change_details": "현재 버전: 6",
-      "old_version": 0,
-      "new_version": 6,
-      "detected_at": "2026-06-02T15:10:22.787+09:00"
+      "key": "KCM",
+      "title": "KRAFTON Campaign Manager(KCM)",
+      "severity": null,
+      "changes": []
     },
     {
-      "product_name": "KAB",
-      "page_title": "KRAFTON Audience Builder(KAB)",
-      "page_url": "https://krafton.atlassian.net/wiki/spaces/236945417/pages/376987866",
-      "change_summary": "KRAFTON Audience Builder(KAB) 페이지가 신규로 추적 대상에 등록되었습니다.",
-      "change_category": "신규 등록",
-      "change_details": "현재 버전: 9",
-      "old_version": 0,
-      "new_version": 9,
-      "detected_at": "2026-06-02T15:10:22.787+09:00"
+      "key": "KAB",
+      "title": "KRAFTON Audience Builder(KAB)",
+      "severity": null,
+      "changes": []
     },
     {
-      "product_name": "KSS",
-      "page_title": "KRAFTON Security System(KSS)",
-      "page_url": "https://krafton.atlassian.net/wiki/spaces/236945417/pages/378705624",
-      "change_summary": "KRAFTON Security System(KSS) 페이지가 신규로 추적 대상에 등록되었습니다.",
-      "change_category": "신규 등록",
-      "change_details": "현재 버전: 13",
-      "old_version": 0,
-      "new_version": 13,
-      "detected_at": "2026-06-02T15:10:22.787+09:00"
+      "key": "KSS",
+      "title": "KRAFTON Security System(KSS)",
+      "severity": null,
+      "changes": []
     },
     {
-      "product_name": "KGC",
-      "page_title": "KRAFTON Game Commerce(KGC)",
-      "page_url": "https://krafton.atlassian.net/wiki/spaces/236945417/pages/379355231",
-      "change_summary": "KRAFTON Game Commerce(KGC) 페이지가 신규로 추적 대상에 등록되었습니다.",
-      "change_category": "신규 등록",
-      "change_details": "현재 버전: 7",
-      "old_version": 0,
-      "new_version": 7,
-      "detected_at": "2026-06-02T15:10:22.787+09:00"
+      "key": "KGC",
+      "title": "KRAFTON Game Commerce(KGC)",
+      "severity": null,
+      "changes": []
     },
     {
-      "product_name": "KPS",
-      "page_title": "KRAFTON Payment System(KPS)",
-      "page_url": "https://krafton.atlassian.net/wiki/spaces/236945417/pages/376988215",
-      "change_summary": "KRAFTON Payment System(KPS) 페이지가 신규로 추적 대상에 등록되었습니다.",
-      "change_category": "신규 등록",
-      "change_details": "현재 버전: 5",
-      "old_version": 0,
-      "new_version": 5,
-      "detected_at": "2026-06-02T15:10:22.787+09:00"
+      "key": "KPS",
+      "title": "KRAFTON Payment System(KPS)",
+      "severity": null,
+      "changes": []
     },
     {
-      "product_name": "KPAP",
-      "page_title": "KRAFTON Publishing Admin Portal(KPAP)",
-      "page_url": "https://krafton.atlassian.net/wiki/spaces/236945417/pages/378705723",
-      "change_summary": "KRAFTON Publishing Admin Portal(KPAP) 페이지가 신규로 추적 대상에 등록되었습니다.",
-      "change_category": "신규 등록",
-      "change_details": "현재 버전: 8",
-      "old_version": 0,
-      "new_version": 8,
-      "detected_at": "2026-06-02T15:10:22.787+09:00"
+      "key": "KPAP",
+      "title": "KRAFTON Publishing Admin Portal(KPAP)",
+      "severity": null,
+      "changes": []
     },
     {
-      "product_name": "KPOS",
-      "page_title": "KRAFTON Payout System(KPOS)",
-      "page_url": "https://krafton.atlassian.net/wiki/spaces/236945417/pages/376988324",
-      "change_summary": "KRAFTON Payout System(KPOS) 페이지가 신규로 추적 대상에 등록되었습니다.",
-      "change_category": "신규 등록",
-      "change_details": "현재 버전: 16",
-      "old_version": 0,
-      "new_version": 16,
-      "detected_at": "2026-06-02T15:10:22.787+09:00"
+      "key": "KPOS",
+      "title": "KRAFTON Payout System(KPOS)",
+      "severity": null,
+      "changes": []
     },
     {
-      "product_name": "KDP",
-      "page_title": "KRAFTON Data Platform(KDP)",
-      "page_url": "https://krafton.atlassian.net/wiki/spaces/236945417/pages/376988443",
-      "change_summary": "KRAFTON Data Platform(KDP) 페이지가 신규로 추적 대상에 등록되었습니다.",
-      "change_category": "신규 등록",
-      "change_details": "현재 버전: 28",
-      "old_version": 0,
-      "new_version": 28,
-      "detected_at": "2026-06-02T15:10:22.787+09:00"
+      "key": "KDP",
+      "title": "KRAFTON Data Platform(KDP)",
+      "severity": null,
+      "changes": []
     },
     {
-      "product_name": "K-Cat",
-      "page_title": "KRAFTON Catalog System(K-Cat)",
-      "page_url": "https://krafton.atlassian.net/wiki/spaces/236945417/pages/989419571",
-      "change_summary": "KRAFTON Catalog System(K-Cat) 페이지가 신규로 추적 대상에 등록되었습니다.",
-      "change_category": "신규 등록",
-      "change_details": "현재 버전: 3",
-      "old_version": 0,
-      "new_version": 3,
-      "detected_at": "2026-06-02T15:10:22.787+09:00"
+      "key": "K-Cat",
+      "title": "KRAFTON Catalog System(K-Cat)",
+      "severity": null,
+      "changes": []
     }
   ]
 }
